@@ -86,6 +86,7 @@ fn word_match_candidate(word: &str, row: &[Option<char>; 5]) -> bool {
 
 #[cfg(test)]
 mod tests {
+
     use super::*;
 
     fn empty_test_data() -> ([Option<char>; 5], Vec<char>, Vec<String>) {
@@ -95,7 +96,8 @@ mod tests {
 
     #[test]
     fn it_gives_all_words_given_no_options() {
-        let (empty_row, empty_list, word_list) = empty_test_data();
+        let (empty_row, empty_list, _word_list) = empty_test_data();
+        let word_list = vec!["puzzle".to_string()];
         let res = wordle_solve(&empty_row, &empty_list, &empty_list, &word_list);
         assert_eq!(res, vec!["puzzle"])
     }
